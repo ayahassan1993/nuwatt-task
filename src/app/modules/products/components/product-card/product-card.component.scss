@@ -1,0 +1,10 @@
+.product-card {
+  opacity: 0;
+  transform: translateY(45px);
+  transition: opacity 1s ease, transform 1.5s ease;
+}
+
+.product-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

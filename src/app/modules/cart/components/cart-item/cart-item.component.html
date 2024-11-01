@@ -1,0 +1,25 @@
+<div
+  class="cart-item flex items-center border border-borderColor rounded-md overflow-hidden mb-4"
+>
+  <div class="h-32 w-32 p-4 bg-[#fff] inline-flex justify-center items-center">
+    <img
+      [src]="item()?.product?.image"
+      class="w-100 max-h-full"
+      [alt]="item()?.product?.title"
+    />
+  </div>
+  <div class="w-[95%] p-4 inline-flex justify-between gap-4 items-start">
+    <div>
+      <h5 class="font-bold mb-2">{{ item()?.product?.title }}</h5>
+
+      <p class="mb-4 text-gray text-sm">
+        {{ item()?.product?.description | slice : 0 : 200 }}
+        @if (item().product.description.length > 200) { ... }
+      </p>
+      <p class="text-orange font-bold">{{ item()?.product?.price }} $</p>
+    </div>
+    <span class="border border-borderColor py-3 px-4 rounded-md leading-4">{{
+      item()?.quantity
+    }}</span>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<div>
+  <h1 class="text-xl">
+    <span class="title">Our Products</span>
+  </h1>
+  <!-- catigories section  -->
+  <section class="mt-7">
+    <ul class="flex gap-4 items-center overflow-y-auto py-4">
+      <li
+        [ngClass]="{ 'bg-orange text-[#fff]': activeCatigory() == 'All' }"
+        class="rounded-md px-4 py-2 cursor-pointer"
+        (click)="activeCatigory.set('All'); getProducts()"
+      >
+        All
+      </li>
+      @for (category of catigoriesList(); track $index) {
+      <li
+        [ngClass]="{ 'bg-orange text-[#fff]': activeCatigory() == category }"
+        class="rounded-md px-4 py-2 cursor-pointer capitalize whitespace-nowrap"
+        (click)="
+          activeCatigory.set(category);
+          productsLimit.set(10);
+          getProductsByCatigory()
+        "
+      >
+        {{ category }}
+      </li>
+      }
+    </ul>
+  </section>
+  <!-- end catigories section  -->
+  <!-- products section  -->
+  <section class="mt-8">
+    <div
+      class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+    >
+      <!-- product card  -->
+      @for (product of productsList(); track $index) {
+      <product-card
+        [product]="product"
+        (addToCart)="addToCart($event)"
+      ></product-card>
+      }
+    </div>
+  </section>
+  <!-- end products section  -->
+</div>

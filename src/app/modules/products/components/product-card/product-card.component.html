@@ -1,0 +1,30 @@
+<div
+  class="product-card border rounded-md border-borderColor px-4 py-5 h-full flex justify-between flex-col gap-4 shadow"
+  appScrollAnimation
+>
+  <h3 class="font-bold">
+    {{ product().title | slice : 0 : 35 }}
+    @if (product().title.length > 35) { ... }
+  </h3>
+  <div class="product-body">
+    <img
+      class="h-52 mx-auto mb-3"
+      [src]="product().image"
+      alt="{{ product().title }}"
+    />
+    <p class="mb-4 text-gray text-sm">
+      {{ product().description | slice : 0 : 80 }}
+      @if (product().description.length > 80) { ... }
+    </p>
+  </div>
+  <div class="inline-flex justify-between items-center">
+    <span class="text-orange">${{ product().price }}</span>
+
+    <button
+      (click)="addToCart.emit(product())"
+      class="px-3 py-2 bg-orange text-[#fff] rounded-md"
+    >
+      Add To Cart
+    </button>
+  </div>
+</div>

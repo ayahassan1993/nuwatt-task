@@ -1,0 +1,40 @@
+@font-face {
+  font-family: "HelveticaNeue Regular";
+  src: url("../fonts/HelveticaNeue-Reg.woff2") format("woff2"),
+    url("../fonts/HelveticaNeue-Reg.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "HelveticaNeue Bold";
+  src: url("../fonts/HelveticaNeue-Bd.woff2") format("woff2"),
+    url("../fonts/HelveticaNeue-Bd.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --orang: #f68759;
+}
+
+body {
+  font-family: "HelveticaNeue Regular";
+  font-size: 16px;
+}
+
+.title {
+  position: relative;
+  padding-bottom: 5px;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 2px;
+    background: var(--orang);
+  }
+}
